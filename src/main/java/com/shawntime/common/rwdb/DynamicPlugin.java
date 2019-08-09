@@ -24,9 +24,9 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
  * Desc: Spring+MyBatis实现数据库读写分离
  */
 @Intercepts({
-@Signature(type = Executor.class, method = "update", args = {
+@Signature(type = Executor.class, method = "update", args = { //增删改
         MappedStatement.class, Object.class }),
-@Signature(type = Executor.class, method = "query", args = {
+@Signature(type = Executor.class, method = "query", args = {//查
         MappedStatement.class, Object.class, RowBounds.class,
         ResultHandler.class }) })
 public class DynamicPlugin implements Interceptor {
