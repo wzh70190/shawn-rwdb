@@ -39,7 +39,7 @@ public class DynamicPlugin implements Interceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-
+        //如果是在spring事务上下文中 开启了事务
         boolean synchronizationActive = TransactionSynchronizationManager.isSynchronizationActive();
         if(!synchronizationActive) {
             Object[] objects = invocation.getArgs();
